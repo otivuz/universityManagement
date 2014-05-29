@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "AskToAssign";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Assign Opion</h2>
+
+<div><h1>@ViewBag.Message</h1></div>
+
+<form action="AssignConfirmed">
+    <input type="submit" value="Assign" />
+</form>
+<form action="Create">
+    <input type="submit" value="Cancel" />
+</form>

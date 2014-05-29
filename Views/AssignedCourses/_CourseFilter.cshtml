@@ -1,0 +1,38 @@
+﻿@model IEnumerable<OctsProjectMvcTest.Models.Course>
+
+<table>
+    <tr>
+        <th>
+            Course Code
+        </th>
+        <th>
+            Name/Title
+        </th>
+        <td>
+            Semester
+        </td>
+        <th>
+            Assigned To
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Semester.SemesterName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignedTo)
+        </td>
+        
+    </tr>
+}
+
+</table>

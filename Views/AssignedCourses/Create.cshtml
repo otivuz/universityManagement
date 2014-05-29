@@ -1,0 +1,82 @@
+﻿@model OctsProjectMvcTest.Models.AssignedCourse
+
+@{
+    ViewBag.Title = "Assign a Course to a Teacher";
+}
+
+<h2>Assign a Course to a Teacher</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    function FillData(id) {
+        $('#TeacherID').load('@Url.Action("LoadTeacherDropDown")', { departmentID: id });
+        $('#CourseID').load('@Url.Action("LoadCourseDropDown")', { departmentID: id });
+    }
+
+    $(document).ready(function () {
+        $('#DepartmentID').change(function () {
+            var id = $('#DepartmentID').val();
+            FillData(id);
+        });
+
+        $('#TeacherID').change(function () {
+            var id = $('#TeacherID').val();
+            $('#TeacherInfo').load('@Url.Action("TeacherInfo")', { teacherID: id });
+        });
+
+        $('#CourseID').change(function () {
+            var id = $('#CourseID').val();
+            $('#CourseInfo').load('@Url.Action("CourseInfo")', { courseID: id });
+        });
+    }); 
+
+</script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>AssignedCourse</legend>
+
+        <div class="editor-field">
+            <b>Select Department</b>
+            @Html.DropDownList("DepartmentID", String.Empty)
+        </div>
+
+        <div class="editor-label">
+            Select
+            @Html.LabelFor(model => model.TeacherID, "Teacher")
+        </div>
+        <div class="editor-field">            
+            @Html.Partial("~/Views/AssignedCourses/_LoadTeacherDropDown.cshtml")
+            @Html.ValidationMessageFor(Model=>Model.TeacherID)
+        </div>
+        <div class="editor-field">            
+            @Html.Partial("~/Views/AssignedCourses/_TeacherInfo.cshtml")
+        </div>
+
+        <div class="editor-label">
+            Select
+            @Html.LabelFor(model => model.CourseID, "Course")
+        </div>
+        <div class="editor-field">            
+            @Html.Partial("~/Views/AssignedCourses/_LoadCourseDropDown.cshtml")
+            @Html.ValidationMessageFor(Model=>Model.CourseID)
+        </div>
+        <div class="editor-field">            
+            @Html.Partial("~/Views/AssignedCourses/_CourseInfo.cshtml")
+        </div>
+
+
+        <p>
+            <input type="submit" value="Assign" />
+        </p>
+    </fieldset>
+}
+
+<div><h1>@ViewBag.Message</h1></div>
+
+<div>
+    @Html.ActionLink("View All Assigned Courses", "Index")
+</div>

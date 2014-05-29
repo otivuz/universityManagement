@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MVC3UniversityMVC3App1.Models.AllocatedRoom>
+
+@{
+    ViewBag.Title = "List of Allocated Class Rooms";
+}
+
+<h2>List of Allocated Class Rooms</h2>
+
+<p>
+    @Html.ActionLink("Allocate Room", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Course
+        </th>
+        <th>
+            Room
+        </th>
+        <th>
+            WeekDay
+        </th>
+        <th>
+            StartTime
+        </th>
+        <th>
+            EndTime
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.CourseCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Room.RoomNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WeekDay.DayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndTime)
+        </td>
+    </tr>
+}
+
+</table>

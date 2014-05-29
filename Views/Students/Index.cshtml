@@ -1,0 +1,63 @@
+﻿@model IEnumerable<OctsProjectMvcTest.Models.Student>
+
+@{
+    ViewBag.Title = "List of All Students";
+}
+
+<h2>List of All Students</h2>
+
+<p>
+    @Html.ActionLink("Add Student", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            RegNo
+        </th>
+        <th>
+            StudentName
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            ContactNo
+        </th>
+        <th>
+            AdmissionDate
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Department
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdmissionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DeptCode)
+        </td>
+    </tr>
+}
+
+</table>

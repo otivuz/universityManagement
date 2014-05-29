@@ -1,0 +1,43 @@
+﻿@model OctsProjectMvcTest.Models.Department
+
+@{
+    ViewBag.Title = "Department Entry";
+}
+
+<h2>Department Entry</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Department</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DeptCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DeptCode)
+            @Html.ValidationMessageFor(model => model.DeptCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DeptName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DeptName)
+            @Html.ValidationMessageFor(model => model.DeptName)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div><h1>@ViewBag.Message</h1></div>
+
+<div>
+    @Html.ActionLink("View All Departments", "Index")
+</div>

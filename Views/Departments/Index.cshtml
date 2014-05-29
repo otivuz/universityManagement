@@ -1,0 +1,33 @@
+﻿@model IEnumerable<OctsProjectMvcTest.Models.Department>
+
+@{
+    ViewBag.Title = "List of All Departments";
+}
+
+<h2>List of All Departments</h2>
+
+<p>
+    @Html.ActionLink("Enter New Department", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            DeptCode
+        </th>
+        <th>
+            DeptName
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeptCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeptName)
+        </td>
+    </tr>
+}
+
+</table>

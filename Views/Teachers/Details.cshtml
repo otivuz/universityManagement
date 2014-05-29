@@ -1,0 +1,60 @@
+﻿@model OctsProjectMvcTest.Models.Teacher
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Teacher</legend>
+
+    <div class="display-label">TeacherName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TeacherName)
+    </div>
+
+    <div class="display-label">Address</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">ContactNo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ContactNo)
+    </div>
+
+    <div class="display-label">CreditsToBeTaken</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreditsToBeTaken)
+    </div>
+
+    <div class="display-label">CreditsHaveTaken</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreditsHaveTaken)
+    </div>
+
+    <div class="display-label">CreditsRemaining</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreditsRemaining)
+    </div>
+
+    <div class="display-label">Designation</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Designation.DsgName)
+    </div>
+
+    <div class="display-label">Department</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Department.DeptCode)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TeacherID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

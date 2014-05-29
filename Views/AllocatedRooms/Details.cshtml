@@ -1,0 +1,40 @@
+﻿@model MVC3UniversityMVC3App1.Models.AllocatedRoom
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>AllocatedRoom</legend>
+
+    <div class="display-label">Course</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Course.CourseCode)
+    </div>
+
+    <div class="display-label">Room</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Room.RoomNo)
+    </div>
+
+    <div class="display-label">WeekDay</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WeekDay.DayName)
+    </div>
+
+    <div class="display-label">StartTime</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartTime)
+    </div>
+
+    <div class="display-label">EndTime</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndTime)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AllocatedRoomID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

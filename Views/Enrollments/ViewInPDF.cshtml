@@ -1,0 +1,89 @@
+﻿@model IEnumerable<OctsProjectMvcTest.Models.Enrollment>
+
+@{
+    Layout = null;
+}
+
+<itext creationdate="@DateTime.Now.ToString()" producer="RazorPDF">
+       
+
+    <table>
+        @foreach (var item in Model)
+        {
+            <row>
+                <cell>Extreme University Bangladesh</cell>
+            </row>
+            <row>
+                <cell>
+                    Department of :
+                    @Html.DisplayFor(modelItem => item.Student.Department.DeptName)
+                </cell>
+            </row>
+            <row>
+                <cell></cell>
+            </row>
+            <row>
+                <cell>
+                    Report Date : Dhaka, 
+                    @DateTime.Now
+                </cell>
+            </row>            
+            break; 
+        }
+    </table>
+    <table>
+        @foreach (var item in Model)
+        {
+            <row>
+                <cell>
+                    Student Name :-
+                </cell>
+                <cell>
+                    @Html.DisplayFor(modelItem => item.Student.StudentName)
+                </cell>
+            </row>
+            <row>
+                <cell>
+                    Email :-
+                </cell>
+                <cell>
+                    @Html.DisplayFor(modelItem => item.Student.Email)
+                </cell>
+            </row>
+            break;
+        }
+        
+    </table>
+    
+    <table width="100%" widths="30;70">
+     <row>
+         <cell>
+             Course Code
+         </cell>
+         <cell>
+              Name/Title
+         </cell>
+         <cell>
+             Grade Letter
+         </cell>
+    </row>
+    
+    @foreach (var item in Model)
+    {
+        <row>
+            <cell>
+                @Html.DisplayFor(modelItem=>item.Course.CourseCode)
+            </cell>
+            <cell>
+                @Html.DisplayFor(modelItem=>item.Course.CourseName)
+            </cell>
+            <cell>
+                 @Html.DisplayFor(modelItem=>item.Grade.GradeLetter)
+               
+            </cell>
+        </row>
+        
+    }    
+    </table>
+</itext>
+

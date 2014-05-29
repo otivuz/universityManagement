@@ -1,0 +1,25 @@
+﻿@model OctsProjectMvcTest.Models.AssignedCourse
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>AssignedCourse</legend>
+
+    <div class="display-label">Course</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Course.CourseCode)
+    </div>
+
+    <div class="display-label">Teacher</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Teacher.TeacherName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AssignedCourseID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<OctsProjectMvcTest.Models.AssignedCourse>
+
+@{
+    ViewBag.Title = "List of Assigned Courses";
+}
+
+<h2>List of Assigned Courses</h2>
+
+<p>
+    @Html.ActionLink("Assaign Course", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Course
+        </th>
+        <th>
+            Teacher
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.CourseCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher.TeacherName)
+        </td>
+    </tr>
+}
+
+</table>

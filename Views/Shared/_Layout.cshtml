@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-2.5.3.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")" type="text/javascript"></script>
+</head>
+
+    <body>
+
+        <div class="container">
+            <div class="col-md-12">
+                <div class="row">
+                    <h2>OCTS University App</h2>    
+                </div>
+            </div>
+        </div>        
+        <div class="container">
+            <div class="col-md-12">
+                <div class="row">
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li>@*@Html.ActionLink("Home", "Index", "Home")*@</li>
+                                <li>@Html.ActionLink("Departments", "Index", "Departments")</li>
+                                <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
+                                <li>@Html.ActionLink("Teachers", "Index", "Teachers")</li>
+                                <li>@Html.ActionLink("AssignedCourses", "Index", "AssignedCourses")</li>
+                                <li>@Html.ActionLink("ViewCourse", "ViewCourseStatics", "AssignedCourses")</li>
+                                <li>@Html.ActionLink("Rooms", "Index", "AllocatedRooms")</li>
+                                <li>@Html.ActionLink("ViewRoom", "ViewRoomAllocation", "AllocatedRooms")</li>
+                                <li>@Html.ActionLink("Students", "Index", "Students")</li>
+                                <li>@Html.ActionLink("Enroll", "Index", "Enrollments")</li>
+                                <li>@Html.ActionLink("Enter Result ", "ResultEntry", "Enrollments")</li>
+                                <li>@Html.ActionLink("View Result ", "ViewResult", "Enrollments")</li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </nav>            
+                </div>
+            </div>
+        </div>
+            
+        
+        
+        <div class="container">
+            <div class="col-md-12">
+                <div class="row">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <div class="container">
+            <div class="col-md-12">
+                <div class="row">
+                    <p>Copyright &copy; 2014 - OCTS</p>
+                </div>
+            </div>
+        </div>
+       
+
+    </body>
+</html>

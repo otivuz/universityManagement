@@ -1,0 +1,42 @@
+﻿
+@model IEnumerable<OctsProjectMvcTest.Models.Course>
+
+@{
+    ViewBag.Title = "ViewCourseStatics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View Course Statics </h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <b>Select Department :- </b>
+        @Html.DropDownList("DepartmentID", String.Empty)
+    </div>
+}
+<div id="course-data">
+    @Html.Partial("~/Views/AssignedCourses/_CourseFilter.cshtml", Model)
+</div>
+
+<div>
+    @Html.ActionLink("View All Assigned Courses", "Index")
+</div>
+
+<script type="text/javascript">
+    function FillData(id) {
+        $('#course-data').load('@Url.Action("CourseFilter")', { departmentID: id });
+        }
+
+        $(function () {
+            $('#DepartmentID').change(function () {
+                var id = $('#DepartmentID').val();
+                FillData(id);
+            });
+        }); 
+
+</script>
+
+

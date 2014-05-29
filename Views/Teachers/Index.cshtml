@@ -1,0 +1,75 @@
+﻿@model IEnumerable<OctsProjectMvcTest.Models.Teacher>
+
+@{
+    ViewBag.Title = "List of All Teachers";
+}
+
+<h2>List of All Teachers</h2>
+
+<p>
+    @Html.ActionLink("Enter New Teacher", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            TeacherName
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            ContactNo
+        </th>
+        <th>
+            CreditsToBeTaken
+        </th>
+        <th>
+            CreditsHaveTaken
+        </th>
+        <th>
+            CreditsRemaining
+        </th>
+        <th>
+            Designation
+        </th>
+        <th>
+            Department
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeacherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditsToBeTaken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditsHaveTaken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditsRemaining)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation.DsgName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DeptCode)
+        </td>
+    </tr>
+}
+
+</table>
